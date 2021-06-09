@@ -24,7 +24,7 @@ function github_releases_download {
             exit 1
     fi
 
-    wget --header 'Accept:application/octet-stream' -O $ARTIFACT_NAME "${ARTIFACT_URL}?access_token=${GITHUB_ACCESS_TOKEN}"
+    wget --header 'Accept:application/octet-stream' --header "Authorization: token ${GITHUB_ACCESS_TOKEN}" -O $ARTIFACT_NAME "${ARTIFACT_URL}"
 }
 
 function generic_download {
